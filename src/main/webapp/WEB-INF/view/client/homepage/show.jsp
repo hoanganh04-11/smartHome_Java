@@ -6,7 +6,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
+            <title>Smart Home</title>
             <!-- Google Web Fonts -->
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,12 +32,12 @@
 
         <body>
         
-            <!-- Spinner Start -->
+            <!-- Spinner Start
             <div id="spinner"
                 class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
                 <div class="spinner-grow text-primary" role="status"></div>
             </div>
-            <!-- Spinner End -->
+            <!- Spinner End -->
         
             <jsp:include page="../layout/header.jsp" />
             
@@ -71,7 +71,7 @@
         
         
             <!-- Fruits Shop Start-->
-            <div class="container-fluid fruite py-5">
+            <!-- <div class="container-fluid fruite py-5">
                 <div class="container py-5">
                     <div class="tab-class text-center">
                         <div class="row g-4">
@@ -527,7 +527,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- Fruits Shop End-->
 
         
@@ -550,7 +550,7 @@
             <script src="/client/lib/owlcarousel/owl.carousel.min.js"></script>
         
             <!-- Template Javascript -->
-            <script src="/client/js/main.js"></script>
+            <script src="/client/js/main.js"></script> 
         </body>
 
         </html>
