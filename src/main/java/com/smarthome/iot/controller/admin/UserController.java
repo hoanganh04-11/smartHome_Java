@@ -2,16 +2,20 @@ package com.smarthome.iot.controller.admin;
 
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.smarthome.iot.domain.User;
 import com.smarthome.iot.service.UploadService;
 import com.smarthome.iot.service.UserService;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,11 +51,16 @@ public class UserController {
 
     @PostMapping("/admin/user/create")
     public String createUserPage(Model model,
-            @ModelAttribute("newUser") User user,
+            @ModelAttribute("newUser") @Valid User user,BindingResult bindingResult,
             @RequestParam(value = "File", required = false) MultipartFile file) {
-        String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
-        
 
+        List<FieldError> errors = bindingResult.getFieldErrors(); 
+        for (FieldError error : errors ) { 
+            System.out.println (error.getObjectName() + " - " + error.getDefaultMessage()); 
+        }
+        //Validate 
+                
+        String avatar = this.uploadService.handleSaveUploadFile(file, "avatar");
         String hashPassword = this.passwordEncoder.encode(user.getPassword());
         user.setAvatar(avatar);
         user.setPassword(hashPassword);
