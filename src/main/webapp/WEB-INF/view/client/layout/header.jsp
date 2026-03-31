@@ -33,7 +33,7 @@
                     <a href="/" class="nav-item nav-link active">Trang Chủ</a>
                     <a href="shop.html" class="nav-item nav-link">Phòng</a>
                     <a href="shop-detail.html" class="nav-item nav-link">Thiết Bị</a>
-                    <a href="shop-detail.html" class="nav-item nav-link">Cảm biến</a>
+                    <a href="client/sensor" class="nav-item nav-link">Cảm biến</a>
                     <a href="contact.html" class="nav-item nav-link">Thông Báo</a>
 
                     <!-- <div class="nav-item dropdown">
