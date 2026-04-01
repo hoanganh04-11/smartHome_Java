@@ -30,7 +30,11 @@
                                     <form method="post" action="/login">
 
                                         <c:if test="${param.error != null}">
-                                            <div class="my-2" style="color: red;">Invalid email or password.</div>
+                                            <div class="my-2" style="color: red;">Email hoặc mật khẩu không hợp lệ.</div>
+                                        </c:if>
+
+                                        <c:if test="${param.logout != null}">
+                                            <div class="my-2" style="color: green;">Đăng xuất thành công.</div>
                                         </c:if>
                                         
                                         <div class="form-floating mb-3">
