@@ -25,5 +25,16 @@ public class SensorService {
         return this.sensorRepository.save(sensor);
     }
 
-    
+    public Sensor findById(Long id){
+        return this.sensorRepository.findById(id).orElse(null);
+    }
+
+    public Sensor handleSaveSensor(Sensor sensor){
+        Sensor newSensor = this.sensorRepository.save(sensor);
+        return newSensor;
+    }
+
+    public void deleteASensor(Long id){
+        this.sensorRepository.deleteById(id);
+    }
 }

@@ -52,12 +52,8 @@
                                                 </div>
 
 
-                                                
-
-
-                                                <div class="col-12 mb-5">
                                                     <button type="submit" class="btn btn-primary">Tạo mới</button>
-                                                </div>
+                                                    <a href="/admin/room" class="btn btn-secondary mt-2">Quay lại</a>
 
                                             </form:form>
                                         </div>

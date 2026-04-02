@@ -10,7 +10,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
                 <meta name="description" content="" />
                 <meta name="author" content="" />
-                <title>Cập nhật phòng - Smart Home</title>
+                <title>Xóa cảm biến - Smart Home</title>
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
@@ -26,45 +26,42 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Quản lý phòng</h1>
+                                <h1 class="mt-4">Quản lý cảm biến</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Trang chủ</a></li>
-                                    <li class="breadcrumb-item active">Phòng</li>
+                                    <li class="breadcrumb-item active">Cảm biến</li>
                                 </ol>
                                 <div class="container mt-5">
                                     <div class="row">
-                                        <div class="col-md-6 col-12 mx-auto">
-                                            <h3>Cập nhật phòng</h3>
+                                        <div class="col-12 mx-auto">
+                                            <div class="d-flex justify-content-between">
+                                                <h3>Xóa cảm biến với Id = ${id}</h3>
+                                            </div>
                                             <hr />
-                                            <form:form method="post" action="/admin/room/update"
-                                                modelAttribute="newRoom">
 
+                                            <div class="alert alert-danger">
+                                                Bạn có chắc muốn xóa cảm biến này ?
+                                            </div>
+                                            <form:form method="post" action="/admin/sensor/delete"
+                                                modelAttribute="deleteSensor">
                                                 <div class="mb-3" style="display: none;">
                                                     <label class="form-label">ID:</label>
-                                                    <form:input type="text" class="form-control" path="id" />
+                                                    <form:input value="${id}" type="text" class="form-control"
+                                                        path="id" />
                                                 </div>
-
-                                                <div class="mb-3">
-                                                    <label class="form-label">Tên phòng:</label>
-                                                    <form:input type="text" class="form-control" path="name" />
-                                                </div>
-
-                                                <button type="submit" class="btn btn-warning px-4 py-2 shadow-sm text-dark fw-bold">
-                                                    <i class="fas fa-save me-2"></i>Lưu cập nhật
+                                                <button type="submit" class="btn btn-danger px-4 py-2 shadow-sm">
+                                                    <i class="fas fa-trash-alt me-2"></i>Xác nhận xóa
                                                 </button>
                                                 
-                                                <a href="/admin/room" class="btn btn-secondary px-4 py-2 shadow-sm">
-                                                    <i class="fas fa-arrow-left me-2"></i>Quay lại
+                                                <a href="/admin/sensor" class="btn btn-secondary px-4 py-2 shadow-sm">
+                                                    <i class="fas fa-undo me-2"></i>Quay lại
                                                 </a>
 
                                             </form:form>
                                         </div>
 
                                     </div>
-
                                 </div>
-
-                            </div>
                         </main>
 
                         <jsp:include page="../layout/footer.jsp" />

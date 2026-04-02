@@ -55,7 +55,15 @@
                                                     <form:input type="text" class="form-control" path="status" />
                                                 </div>
 
-                                                <button type="submit" class="btn btn-warning">Cập nhật</button>
+                                                <button type="submit" class="btn btn-warning px-4 py-2 shadow-sm text-dark fw-bold">
+                                                    <i class="fas fa-save me-2"></i>Lưu cập nhật
+                                                </button>
+                                                
+                                                <a href="/admin/device" class="btn btn-secondary px-4 py-2 shadow-sm">
+                                                    <i class="fas fa-arrow-left me-2"></i>Quay lại
+                                                </a>
+
+
                                             </form:form>
                                         </div>
 

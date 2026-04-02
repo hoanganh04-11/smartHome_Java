@@ -60,9 +60,8 @@
                                                 </div>
 
 
-                                                <div class="col-12 mb-5">
-                                                    <button type="submit" class="btn btn-primary">Tạo mới</button>
-                                                </div>
+                                                <button type="submit" class="btn btn-primary">Tạo mới</button>
+                                                <a href="/admin/user" class="btn btn-secondary mt-2">Quay lại</a>
 
                                             </form:form>
                                         </div>

@@ -51,7 +51,14 @@
                                                         path="id" />
                                                 </div>
 
-                                                <button class="btn btn-danger">Xác nhận</button>
+                                                <button type="submit" class="btn btn-danger px-4 py-2 shadow-sm">
+                                                    <i class="fas fa-trash-alt me-2"></i>Xác nhận xóa
+                                                </button>
+                                                
+                                                <a href="/admin/room" class="btn btn-secondary px-4 py-2 shadow-sm">
+                                                    <i class="fas fa-undo me-2"></i>Quay lại
+                                                </a>
+
                                             </form:form>
                                         </div>
 

@@ -7,27 +7,27 @@
                     <div class="sb-sidenav-menu-heading">Feature</div>
                     <a class="nav-link" href="/admin">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
+                        Trang chủ
                     </a>
 
                     <a class="nav-link" href="/admin/user">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        User
+                        Người dùng
                     </a>
 
                     <a class="nav-link" href="/admin/sensor">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Sensor
+                        Cảm biến
                     </a>
 
                     <a class="nav-link" href="/admin/device">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Device
+                        Thiết bị
                     </a>
 
                     <a class="nav-link" href="/admin/room">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Room
+                        Phòng
                     </a>
                    
                 </div>

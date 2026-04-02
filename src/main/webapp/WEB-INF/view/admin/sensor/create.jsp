@@ -63,10 +63,10 @@
                                                 </div>
 
                                                 <div class="mb-3 col-12 col-md-6">
-                                                    <label class="form-label">Status:</label>
+                                                    <label class="form-label">Trạng thái:</label>
                                                     <form:select class="form-select" path="status" required="required">
-                                                        <form:option value="ON">ON</form:option>
-                                                        <form:option value="OFF">OFF</form:option>
+                                                        <form:option value="ON">Đang hoạt động</form:option>
+                                                        <form:option value="OFF">Đang tắt</form:option>
                                                     </form:select>
                                                 </div>
 
@@ -90,9 +90,8 @@
                                                     ${errorThreshold}
                                                 </div>
                                                 
-                                                <div class="col-12 mb-5">
                                                     <button type="submit" class="btn btn-primary">Tạo mới</button>
-                                                </div>
+                                                    <a href="/admin/sensor" class="btn btn-secondary mt-2">Quay lại</a>
 
                                             </form:form>
                                         </div>

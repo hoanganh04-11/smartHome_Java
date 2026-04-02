@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -40,7 +41,6 @@ public class SensorController {
     @GetMapping("/admin/sensor/create")
     public String getSensorCreatePage(Model model) {
         model.addAttribute("newSensor", new Sensor());
-        
         List<Room> rooms = this.roomService.getAllRoom();
         model.addAttribute("rooms", rooms);
 
@@ -68,7 +68,56 @@ public class SensorController {
     }
 
     @GetMapping("/admin/sensor/{id}")
-    public String getSensorDetailPage(Model model){
+    public String getSensorDetailPage(Model model, @PathVariable Long id){
+        Sensor sensor = this.sensorService.findById(id);
+        model.addAttribute("id", id);
+        model.addAttribute("sensor", sensor);
         return "/admin/sensor/detail";
+    }
+
+    @GetMapping("/admin/sensor/update/{id}")
+    public String getUpdateSensorPage(Model model, @PathVariable Long id){
+        List<Room> rooms = this.roomService.getAllRoom();
+        model.addAttribute("rooms", rooms);
+
+        Sensor currentSensor = this.sensorService.findById(id);
+        model.addAttribute("newSensor", currentSensor);
+        return "admin/sensor/update";
+    }
+
+    @PostMapping("/admin/sensor/update")
+    public String postUpdateSensor(Model model, @ModelAttribute("newSensor") Sensor sensor){
+        Sensor currentSensor = this.sensorService.findById(sensor.getId());
+
+        if(currentSensor != null){
+            currentSensor.setName(sensor.getName());
+            currentSensor.setType(sensor.getType());
+            currentSensor.setThreshold(sensor.getThreshold());
+            currentSensor.setStatus(sensor.getStatus());
+
+            List<Room> rooms = this.roomService.getAllRoom();
+            model.addAttribute("rooms", rooms);
+
+            if (sensor.getRoom() != null && sensor.getRoom().getId() != null) {
+                currentSensor.setRoom(this.roomService.findById(sensor.getRoom().getId()));
+            } else {
+                currentSensor.setRoom(null);
+            }
+            this.sensorService.handleSaveSensor(currentSensor);
+        }
+        return "redirect:/admin/sensor";
+    }
+
+    @GetMapping("/admin/sensor/delete/{id}")
+    public String getDeleteSensorPage(Model model, @PathVariable Long id){
+        model.addAttribute("id", id);
+        model.addAttribute("deleteSensor", new Sensor());
+        return "admin/sensor/delete";
+    }
+
+    @PostMapping("/admin/sensor/delete")
+    public String postDeleteUser(Model model, @ModelAttribute("deleteSensor") Sensor sensor){
+        this.sensorService.deleteASensor(sensor.getId());
+        return "redirect:/admin/sensor";
     }
 }
