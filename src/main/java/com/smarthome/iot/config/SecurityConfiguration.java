@@ -13,6 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.HttpMessageConverterAuthenticationSuccessHandler.AuthenticationSuccess;
 import org.springframework.session.security.web.authentication.SpringSessionRememberMeServices;
+import org.springframework.http.HttpMethod;
 
 import com.smarthome.iot.service.CustomUserDetailsService;
 import com.smarthome.iot.service.UserService;
@@ -81,6 +82,7 @@ public class SecurityConfiguration {
                                 DispatcherType.INCLUDE)
                         .permitAll()
 
+                        .requestMatchers(HttpMethod.POST, "/client/device/*/toggle").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/", "/login", "/register", "/client/**", "/css/**", "/js/**", "/images/**").permitAll()
                         
 

@@ -53,10 +53,19 @@
                                         </span>
                                     </div>
                                 </div>
-                                <button class="toggle-switch ${device.status == 'ON' ? 'on' : 'off'}"
-                                    id="room-toggle-${device.id}" data-device-id="${device.id}"
-                                    onclick="handleToggle(this)">
-                                </button>
+                                <c:choose>
+                                    <c:when test="${not empty pageContext.request.userPrincipal}">
+                                        <button class="toggle-switch ${device.status == 'ON' ? 'on' : 'off'}"
+                                            id="room-toggle-${device.id}" data-device-id="${device.id}"
+                                            onclick="handleToggle(this)">
+                                        </button>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <button class="toggle-switch ${device.status == 'ON' ? 'on' : 'off'}" disabled
+                                            title="Cần đăng nhập để điều khiển">
+                                        </button>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                     </div>
@@ -64,6 +73,12 @@
             </div>
         </c:if>
     </div>
+
+    <c:if test="${empty pageContext.request.userPrincipal}">
+        <div class="alert alert-warning border-0 shadow-sm rounded-4 text-center mb-5">
+            Bạn đang ở chế độ khách, chỉ có quyền xem thông tin. Vui lòng <a href="/login">đăng nhập</a> để điều khiển thiết bị.
+        </div>
+    </c:if>
 
     <div>
         <div class="d-flex align-items-center justify-content-between mb-4">
@@ -221,4 +236,3 @@
 </style>
 
 <jsp:include page="/WEB-INF/view/client/layout/footer.jsp" />
-

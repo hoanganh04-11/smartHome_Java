@@ -41,10 +41,18 @@
                                     <h5 class="fw-bold text-dark mb-1">${device.name}</h5>
                                     <small class="text-muted text-uppercase">Thiết bị</small>
                                 </div>
-                                <button class="toggle-switch ${device.status == 'ON' ? 'on' : 'off'}"
-                                        id="toggle-${device.id}"
-                                        data-device-id="${device.id}"
-                                        onclick="handleToggle(this)"></button>
+                                <c:choose>
+                                    <c:when test="${not empty pageContext.request.userPrincipal}">
+                                        <button class="toggle-switch ${device.status == 'ON' ? 'on' : 'off'}"
+                                                id="toggle-${device.id}"
+                                                data-device-id="${device.id}"
+                                                onclick="handleToggle(this)"></button>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <button class="toggle-switch ${device.status == 'ON' ? 'on' : 'off'}" disabled
+                                                title="Cần đăng nhập để điều khiển"></button>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center">
@@ -63,6 +71,14 @@
         </div>
     </c:if>
 </div>
+
+<c:if test="${empty pageContext.request.userPrincipal}">
+    <div class="container mt-2">
+        <div class="alert alert-warning border-0 shadow-sm rounded-4 text-center">
+            Bạn đang ở chế độ khách, chỉ có quyền xem thông tin. Vui lòng <a href="/login">đăng nhập</a> để điều khiển thiết bị.
+        </div>
+    </div>
+</c:if>
 
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index:9999">
     <div id="toggleToast" class="toast align-items-center text-white border-0 shadow-lg" role="alert">

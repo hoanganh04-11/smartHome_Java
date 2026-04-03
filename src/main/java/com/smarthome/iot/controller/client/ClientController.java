@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.smarthome.iot.domain.Device;
 import com.smarthome.iot.domain.Room;
@@ -102,6 +103,7 @@ public class ClientController {
 
     @PostMapping("/client/device/{id}/toggle")
     @ResponseBody
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     public ResponseEntity<java.util.Map<String, Object>> toggleDevice(@PathVariable Long id) {
         java.util.Map<String, Object> resp = new java.util.HashMap<>();
         try {
