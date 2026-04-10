@@ -340,6 +340,8 @@ refactor: tách service xử lý MQTT
 
 ![Homepage](https://raw.githubusercontent.com/hoanganh04-11/miniproject_spring_mvc/master/src/main/webapp/resources/client/img/homepage.png)
 
+---
+
 ## 🖼️ Giao diện admin
 
 ![Admin](https://raw.githubusercontent.com/hoanganh04-11/miniproject_spring_mvc/master/src/main/webapp/resources/client/img/admin.png)
@@ -409,11 +411,10 @@ GET /api/v1/mqtt/status
 
 </details>
 
----
 
 ---
 
 <p align="center">
-  Made with ❤️ by <strong>HomeSmartIoT Team</strong>
+  Made with ❤️ by <strong>Nhóm 11 - D22_OOP_TEL_PTIT</strong>
 </p>
 
