@@ -69,10 +69,11 @@ Dự án hiện tại tập trung vào nền tảng web:
 ## 📡 Kiến trúc hệ thống
 
 ```text
-[Cảm biến / Node IoT]
+[Cảm biến / Node IoT (STM32)]
         │
+        ├── LoRa
         ▼
-[ESP32/STM32 + LoRa Gateway]
+[ESP32 Gateway]
         │ (MQTT)
         ▼
 [Spring Boot Server]
@@ -220,7 +221,7 @@ HomeSmartIoT/
 │   │   │   ├── controller/
 │   │   │   │   ├── admin/
 │   │   │   │   ├── client/
-│   │   │   │   └── api/
+│   │   │   │ 
 │   │   │   ├── service/
 │   │   │   ├── repository/
 │   │   │   ├── domain/
@@ -242,12 +243,12 @@ HomeSmartIoT/
 
 > Phần firmware hiện không nằm trong repo này, nhưng backend đã sẵn sàng để tích hợp.
 
-### Node cảm biến (STM32/ESP32)
+### Node cảm biến (STM32)
 
 - Đọc dữ liệu cảm biến (nhiệt độ/độ ẩm/khí gas/ánh sáng...)
-- Publish dữ liệu lên MQTT topic theo chuẩn dự án
+- Truyền dữ liệu theo khung qua Gateway Esp32 bằng LoRa
 
-### Gateway (ESP32 + LoRa)
+### Gateway (ESP32)
 
 - Nhận dữ liệu từ node qua LoRa
 - Chuyển tiếp lên MQTT broker
@@ -322,14 +323,12 @@ refactor: tách service xử lý MQTT
 
 ## 👥 Thành viên nhóm
 
-| Họ tên | Vai trò | Công việc |
+| Họ tên | Mã Sinh Viên | Vai trò |
 |---|---|---|
-| Nguyễn Văn A | Backend | Spring Boot, Security, MQTT |
-| Trần Văn B | Frontend | JSP / Bootstrap |
-| Lê Văn C | IoT Firmware | STM32, ESP32, LoRa |
-| Phạm Văn D | Database | Thiết kế CSDL |
+| Nguyễn Tiến Quân | B22DCVT425 | Trưởng nhóm |
+| Hoàng Trung Anh | B22DCVT017 | Thành viên |
+| Nguyễn Khánh Nam | B22DCVT361 | Thành viên |
 
-> Bạn thay lại tên thật của nhóm vào đây.
 
 ---
 
@@ -338,17 +337,14 @@ refactor: tách service xử lý MQTT
 ```md
 ## 🖼️ Giao diện trang chủ
 
-<p align="center">
-  <img src="./docs/images/homepage.png" width="800" alt="Home page"/>
-</p>
+![Image 1](src/main/webapp/resources/client/img/homepage.png)
 ```
 
 ```md
 ## 🖼️ Giao diện admin
 
-<p align="center">
-  <img src="./docs/images/admin-dashboard.png" width="800" alt="Admin dashboard"/>
-</p>
+![Image 1](src/main/webapp/resources/client/img/admin.png)
+
 ```
 
 ---
