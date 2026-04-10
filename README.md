@@ -221,6 +221,7 @@ HomeSmartIoT/
 │   │   │   ├── controller/
 │   │   │   │   ├── admin/
 │   │   │   │   ├── client/
+│   │   │   │   
 │   │   │   │ 
 │   │   │   ├── service/
 │   │   │   ├── repository/
@@ -242,6 +243,7 @@ HomeSmartIoT/
 ## 🔌 Chức năng phần cứng
 
 > Phần firmware hiện không nằm trong repo này, nhưng backend đã sẵn sàng để tích hợp.
+
 
 ### Node cảm biến (STM32)
 
@@ -334,18 +336,16 @@ refactor: tách service xử lý MQTT
 
 ## 🖼️ Ảnh giao diện
 
-```md
 ## 🖼️ Giao diện trang chủ
 
-![Image 1](src/main/webapp/resources/client/img/homepage.png)
-```
+![Homepage](https://raw.githubusercontent.com/hoanganh04-11/miniproject_spring_mvc/master/src/main/webapp/resources/client/img/homepage.png)
 
-```md
+---
+
 ## 🖼️ Giao diện admin
 
-![Image 1](src/main/webapp/resources/client/img/admin.png)
+![Admin](https://raw.githubusercontent.com/hoanganh04-11/miniproject_spring_mvc/master/src/main/webapp/resources/client/img/admin.png)
 
-```
 
 ---
 
@@ -411,14 +411,10 @@ GET /api/v1/mqtt/status
 
 </details>
 
----
-
-## 📄 License
-
-Dự án này được phát hành theo giấy phép **MIT**.
 
 ---
 
 <p align="center">
-  Made with ❤️ by <strong>HomeSmartIoT Team</strong>
+  Made with ❤️ by <strong>Nhóm 11 - D22_OOP_TEL_PTIT</strong>
 </p>
+
